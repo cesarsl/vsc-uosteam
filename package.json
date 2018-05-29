@@ -22,5 +22,9 @@
             "scopeName": "source.uos",
             "path": "./syntaxes/uos.tmLanguage.json"
         }]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cesarsl/vsc-uosteam.git"
     }
 }
