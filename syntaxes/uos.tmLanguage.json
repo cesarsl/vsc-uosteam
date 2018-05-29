@@ -1,0 +1,178 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "UOSteam",
+	"patterns": [
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.uos",
+				"match": "\\b(if|elseif|else|endif|while|endwhile|for|to|in|endfor|return)\\b"
+			},
+			{
+				"name": "keyword.control.uos",
+				"match": "\\b(pause|break|continue|stop|replay|not|and|or)\\b"
+			},
+			{
+				"name": "keyword.operator.comparison.uos",
+				"match": "\\b(==|!=|>=|<=|<|>)\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(fly|land|setability|attack|clearhands|clickobject|bandageself)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(usetype|useobject|useonce|clearusequeue|moveitem|moveitemoffset)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(movetype|movetypeoffset|walk|turn|run|useskill|feed|rename|shownames)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(equipitem|togglemounted|equipwand|buy|sell|clearbuy|clearsell)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(organizer|autoloot|dress|undress|dressconfig|toggleautoloout)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(togglescavenger|counter|unsetalias|setalias|findalias|promptalias)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(contents|inregion|skill|x|y|z|physical|fire|cold|poison|energy)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(str|dex|int|hits|maxhits|diffhits|stam|maxstam|mana|maxmana)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(usequeue|dressing|organizing|followers|maxfollowers|gold|hidden)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(luck|tithingpoints|weight|maxweight|diffweight|graphic|color)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(serial|amount|name|dead|direction|flying|paralyzed|poisoned|mounted)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(yellowhits|war|criminal|enemy|friend|gray|innocent|invulnerable|murderer)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(findobject|distance|inrange|buffexists|property|findtype|findlayer)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(skillstate|counttype|counttypeground|findwand|inparty|infriendlist|warmode)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(waitforgump|replygump|ingump|gumpexists|closegump|injournal|clearjournal)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(waitforjournal|poplist|pushlist|removelist|listexists|list|createlist)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(inlist|clearlist|info|ping|playmacro|playsound|resync|snapshot|hotkeys)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(where|messagebox|mapuo|clickscreen|paperdoll|helpbutton|guildbutton)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(questbutton|logoutbutton|virtue|msg|headmsg|partymsg|allymsg|whispermsg)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(yellmsg|sysmsg|chatmsg|emotemsg|promptmsg|timermsg|waitforprompt)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(cancelprompt|addfriend|removefriend|contextmenu|waitforcontext)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(ignoreboject|clearignorelist|setskill|waitforproperties|autocolorpick)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(waitforcontents|miniheal|bigheal|cast|chivalryheal|waitfortarget)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(canceltarget|target|targettype|targetground|targettile|targettileoffset)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(targettilerelative|cleartargetqueue|autotargetlast|autotargetself)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(autotargetobject|autotargettype|autotargettile|autotargettileoffset)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(autotargettilerelative|autotargetghost|autotargetground|cancelautotarget)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(getenemy|targetexists|waitingfortarget|getfriend|timer|timerexists|settimer)[!]?\\b"
+			},
+			{
+				"name": "support.function.uos",
+				"match": "\\b[@]?(removetimer|createtimer)[!]?\\b"
+			},
+			{
+				"name": "support.constant.uos",
+				"match": "\\b[\\']?(backpack|bank|enemy|friend|ground|last|lasttarget|lastobject)[\\']?\\b"
+			},
+			{
+				"name": "support.constant.uos",
+				"match": "\\b[\\']?(lefthand|mount|righthand|self)[\\']?\\b"
+			},
+			{
+				"name": "comment.line.uos",
+				"match": "\/\/.*"
+			},
+			{
+				"name": "constant.language.uos",
+				"match": "\\b(?i:(true|false))\\b"
+			},
+
+			{
+				"name": "constant.numeric.uos",
+				"match": "\\b[0-9a-fA-F]{1,16}\\b"
+			},
+			{
+				"name": "constant.numeric.hexadecimal.uos",
+				"match": "\\b0(x|X)[0-9a-fA-F]+\\b"
+			},
+			{
+				"name": "string.quoted.single",
+				"begin": "'",
+				"end": "'"
+			},
+			{
+				"name": "string.quoted.double",
+				"begin": "\"",
+				"end": "\""
+			}
+		]
+		}
+	},
+	"scopeName": "source.uos"
+}
