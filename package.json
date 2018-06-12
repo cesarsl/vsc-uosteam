@@ -2,7 +2,7 @@
     "name": "uos",
     "displayName": "UOS",
     "description": "UOSteam Scripting Language support for Visual Studio Code",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "cesarsl",
     "engines": {
         "vscode": "^1.23.0"
@@ -21,7 +21,13 @@
             "language": "uos",
             "scopeName": "source.uos",
             "path": "./syntaxes/uos.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "uos",
+                "path": "./snippets/uos.json"
+            }
+        ]
     },
     "repository": {
         "type": "git",
