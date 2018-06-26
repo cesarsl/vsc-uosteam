@@ -13,10 +13,811 @@
         "body": [
             "if ${1:condition}",
             "\t${2:// body}",
-            "elseif",
+            "elseif ${3:condition}",
             "\t$0",
             "endif"
         ],
         "description": "ifel"
+    },
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else",
+            "\t$0"
+        ],
+        "description": "else"
+    },
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while ${1:condition}",
+            "\t$0",
+            "endwhile"
+        ],
+        "description": "while"
+    },
+    "for": {
+        "prefix": "for",
+        "body": [
+            "for ${1:number}",
+            "\t$0",
+            "endfor"
+        ],
+        "description": "for"
+    },
+    "for_to": {
+        "prefix": "fort",
+        "body": [
+            "for ${1:number} to ${2:number}",
+            "\t$0",
+            "endfor"
+        ],
+        "description": "for to"
+    },
+    "for_list": {
+        "prefix": "forl",
+        "body": [
+            "for ${1:number} to ${2:'list'}",
+            "\t$0",
+            "endfor"
+        ],
+        "description": "for to list"
+    },
+    "for_to_list": {
+        "prefix": "fortl",
+        "body": [
+            "for ${1:number} to ${2:number} in ${3:'list'}",
+            "\t$0",
+            "endfor"
+        ],
+        "description": "for to in list"
+    },
+    "fly": {
+        "prefix": "fly",
+        "description": "Start flying"
+    },
+    "land": {
+        "prefix": "land",
+        "description": "Stop flying"
+    },
+    "setability": {
+        "prefix": "setability",
+        "body": [
+            "setability ${1|'primary','secondary','stun','disarm'|} ${2|'on','off'|}"
+        ],
+        "description": "Toggle or enforce primary, secondary, stun or disarm ability."
+    },
+    "attack": {
+        "prefix": "attack",
+        "body": "attack ${1:serial}",
+        "description": "Attack a specific mobile serial or alias"
+    },
+    "clearhands": {
+        "prefix": "clearhands",
+        "body": "clearhands ${1|'left','right','both'|}",
+        "description": "Unequip character's hand"
+    },
+    "clickobject": {
+        "prefix": "clickobject",
+        "body": "clickobject ${1:serial}",
+        "description": "Perform a single click on a specific serial"
+    },
+    "bandageself": {
+        "prefix": "bandageself",
+        "body": "bandageself\n$0",
+        "description": "Shortcut to use bandage type and automatically target self"
+    },
+    "usetype": {
+        "prefix": "usetype",
+        "body": "usetype ${1:graphic} ${2:color} ${3:source} ${4:range or search level}",
+        "description": "Use a specific item type (graphic)"
+    },
+    "useobject": {
+        "prefix": "useobject",
+        "body": "useobject ${1:serial}",
+        "description": "Use a specific object serial or alias"
+    },
+    "clearusequeue": {
+        "prefix": "clearusequeue",
+        "description": "Clear the use queue"
+    },
+    "useonce": {
+        "prefix": "useonce",
+        "body": "useonce ${1:graphic} ${2:color}",
+        "description": "Use a specific item type (graphic) from your backpack, only once"
+    },
+    "clearuseonce": {
+        "prefix": "clearuseonce",
+        "description": "Clear the use once queue"
+    },
+    "moveitem": {
+        "prefix": "moveitem",
+        "body": "moveitem ${1:serial} ${2:destination} ${3:x y z} ${4:amount}",
+        "description": "Move an item serial to destination. ! suffix disallow stacking"
+    },
+    "moveitemoffset": {
+        "prefix": "moveitemoffset",
+        "body": "moveitemoffset ${1:serial} 'ground' ${2:x y z} ${3:amount}",
+        "description": "Move an item serial on the ground by an offset"
+    },
+    "movetype": {
+        "prefix": "movetype",
+        "body": "movetype ${1:graphic} ${2:source} ${3:destination} ${4:x y z} ${5:color} ${6:amount} ${7:range or search level}",
+        "description": "Move an item by type from source to destination"
+    },
+    "movetypeoffset": {
+        "prefix": "movetypeoffset",
+        "body": "movetypeoffset ${1:graphic} ${2:source} 'ground' ${3:x y z} ${4:color} ${5:amount} ${6:range or search level}",
+        "description": "Move an item by type from source to ground by an offset"
+    },
+    "walk": {
+        "prefix": "walk",
+        "body": "walk ${1|'north','east','south','west','northeast','southeast','southwest','northwest'|}",
+        "description": "Move your character to the given direction(s)"
+    },
+    "turn": {
+        "prefix": "turn",
+        "body": "turn ${1|'north','east','south','west','northeast','southeast','southwest','northwest'|}",
+        "description": "Turn your character to the given direction(s)"
+    },
+    "run": {
+        "prefix": "run",
+        "body": "run ${1|'north','east','south','west','northeast','southeast','southwest','northwest'|}",
+        "description": "Run toward the given direction(s)"
+    },
+    "useskill": {
+        "prefix": "useskill",
+        "body": "useskill ${1|'last','arms lore','begging','forensic evaluation','item identification','taste identification','anatomy','inscription','evaluating intelligence','meditation','spirit speak','animal lore','animal taming','tracking','detecting hidden','hiding','poisoning','remove trap','stealing','stealth','discordance','peacemaking','provocation','cartography'|}",
+        "description": "Use a skill by name"
+    },
+    "feed": {
+        "prefix": "feed",
+        "body": "feed ${1:serial} ${2|'fish','fruits and vegetables','meat','food name','any',graphic|} ${3:color} ${4:amount}",
+        "description": "Feed a given alias or serial with food name, graphic or group"
+    },
+    "rename": {
+        "prefix": "rename",
+        "body": "rename ${1:serial} ${2:'name'}",
+        "description": "Request the server to rename a mobile"
+    },
+    "shownames": {
+        "prefix": "shownames",
+        "body": "shownames ${1|'mobiles','corpses'|}",
+        "description": "Display corpses and/or mobiles names"
+    },
+    "togglehands": {
+        "prefix": "togglehands",
+        "body": "togglehands ${1|'left','right'|}",
+        "description": "Arm and disarm an item"
+    },
+    "equipitem": {
+        "prefix": "equipitem",
+        "body": "equipitem ${1:serial} ${2:layer}",
+        "description": "Equip a specific item into a given layer"
+    },
+    "togglemounted": {
+        "prefix": "togglemounted",
+        "body": "togglemounted\n$0",
+        "description": "Mount and dismount"
+    },
+    "equipwand": {
+        "prefix": "equipwand",
+        "body": "equipwand ${1|'any','undefined','clumsy','identification','heal','feeblemind','weaken','magic arrow','harm','fireball','greater heal','lightning','mana drain'|} ${2:minimum chargs}",
+        "description": "Search for a wand inside your backpack and equip it"
+    },
+    "buy": {
+        "prefix": "buy",
+        "body": "buy ${1:'list name'}",
+        "description": "Execute buy from vendors agent"
+    },
+    "clearbuy": {
+        "prefix": "clearbuy",
+        "body": "clearbuy\n$0",
+        "description": "Clear buy list"
+    },
+    "sell": {
+        "prefix": "sell",
+        "body": "sell ${1:'list name'}",
+        "description": "Execute sell from vendors agent"
+    },
+    "clearsell": {
+        "prefix": "clearsell",
+        "body": "clearsell\n$0",
+        "description": "Clear sell list"
+    },
+    "organizer": {
+        "prefix": "organizer",
+        "body": "organizer ${1:'profile name'} ${2:source} ${3:destination}",
+        "description": "Execute a specific organizer profile"
+    },
+    "autoloot": {
+        "prefix": "autoloot",
+        "body": "autoloot\n$0",
+        "description": "Prompt a cursor to autoloot a specific corpse or container"
+    },
+    "dress": {
+        "prefix": "dress",
+        "body": "dress ${1:'profile name'}",
+        "description": "Dress a specific profile"
+    },
+    "undress": {
+        "prefix": "undress",
+        "body": "undress ${1|'profile name',|}",
+        "description": "Undress a specific profile"
+    },
+    "dressconfig": {
+        "prefix": "dressconfig",
+        "body": "dressconfig\n$0",
+        "description": "Set a temporary dress profile"
+    },
+    "toggleautoloot": {
+        "prefix": "toggleautoloot",
+        "body": "toggleautoloot\n$0",
+        "description": "Enable and disable autoloot agent"
+    },
+    "togglescavenger": {
+        "prefix": "togglescavenger",
+        "body": "togglescavenger\n$0",
+        "description": "Enable and disable scavenger agent"
+    },
+    "counter": {
+        "prefix": "counter",
+        "body": "counter ${1:'format'} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Compare the amount of a specific counter format, set in Agents Tab"
+    },
+    "unsetalias": {
+        "prefix": "unsetalias",
+        "body": "unsetalias ${1:'alias name'}",
+        "description": "Unset and remove an existing alias"
+    },
+    "setalias": {
+        "prefix": "setalias",
+        "body": "setalias ${1:'alias name'} ${2:serial}",
+        "description": "Define an existing alias with a given serial or another alias value"
+    },
+    "findalias": {
+        "prefix": "findalias",
+        "body": "findalias ${1:'alias name'}",
+        "description": "Search if a specific custom alias name is already created"
+    },
+    "promptalias": {
+        "prefix": "promptalias",
+        "body": "promptalias ${1:'alias name'}",
+        "description": "Prompt in-game for a new alias and wait until it is selected"
+    },
+    "contents": {
+        "prefix": "contents",
+        "body": "contents ${1:serial} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Retrieve and compare the amount of items inside a container"
+    },
+    "inregion": {
+        "prefix": "inregion",
+        "body": "inregion ${1|'guards','town','dungeon','forest'|} ${2:serial} ${3:range}",
+        "description": "Checks whether an item or mobile region type matches"
+    },
+    "skill": {
+        "prefix": "skill",
+        "body": "skill ${1|'alchemy','anatomy','animal lore','animal taming','archery','arms lore','begging','blacksmithy','bowcraft','bushido','camping','carpentry','cartography','chivalry','cooking','detecting hidden','discordance','evaluating intelligence','fencing','fishing','focus','forensic evaluation','healing','herding','hiding','imbuing','inscription','item identification','lockpicking','lumberjacking','mace fighting','magery','meditation','mining','musicianship','mysticism','necromancy','ninjitsu','parrying','peacemaking','poisoning','provocation','remove trap','resisting spells','snooping','spellweaving','spirit speak','stealing','stealth','swordsmanship','tactics','tailoring','taste identification','throwing','tinkering','tracking','veterinary','wrestling'|} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Check for a specific local player skill value"
+    },
+    "findobject": {
+        "prefix": "findobject",
+        "body": "findobject ${1:serial} ${2:color} ${3:source} ${4:amount} ${5:range}",
+        "description": "Search for an item by serial or alias"
+    },
+    "distance": {
+        "prefix": "distance",
+        "body": "distance ${1:serial} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Check for distance between your character and another mobile or an item"
+    },
+    "inrange": {
+        "prefix": "inrange",
+        "body": "inrange ${1:serial} ${2:range}",
+        "description": "Check for range between your character and another mobile or an item"
+    },
+    "buffexists": {
+        "prefix": "buffexists",
+        "body": "buffexists ${1|'bleed','mortal strike','disarm','dismount','hiding','meditation','divine fury','enemy of one','bless','night sight','strenght','cunning','agility','curse','mass curse','weaken','feeblemind','clumsy','poison','paralyze','invisibility','polymorph','magic reflection','arch protection','protection','reactive armor','incognito','death strike','animal form','evil omen','corpse skin','blood oath','mind rot','pain spike','strangle','gift of renewal','attune weapon','thunderstorm','essence of wind','ethereal voyage','gift of life','arcane empowerment','disguised'|}",
+        "description": "Check for a specific buff"
+    },
+    "property": {
+        "prefix": "property",
+        "body": "property ${1:'name'} ${2:serial} ${3|==,!=,>=,<=,>,<|} ${4:value}",
+        "description": "Check for a specific item or mobile property, existence and value"
+    },
+    "findtype": {
+        "prefix": "findtype",
+        "body": "findtype ${1:graphic} ${2:color} ${3:source} ${4:range or search level}",
+        "description": "Search for an item type (graphic) and set alias 'found'"
+    },
+    "findlayer": {
+        "prefix": "findlayer",
+        "body": "findlayer ${1:serial} ${2:layer}",
+        "description": "Search for an equipped item"
+    },
+    "skillstate": {
+        "prefix": "skillstate",
+        "body": "skillstate ${1|'alchemy','anatomy','animal lore','animal taming','archery','arms lore','begging','blacksmithy','bowcraft','bushido','camping','carpentry','cartography','chivalry','cooking','detecting hidden','discordance','evaluating intelligence','fencing','fishing','focus','forensic evaluation','healing','herding','hiding','imbuing','inscription','item identification','lockpicking','lumberjacking','mace fighting','magery','meditation','mining','musicianship','mysticism','necromancy','ninjitsu','parrying','peacemaking','poisoning','provocation','remove trap','resisting spells','snooping','spellweaving','spirit speak','stealing','stealth','swordsmanship','tactics','tailoring','taste identification','throwing','tinkering','tracking','veterinary','wrestling'|} ${2|==,!=|} ${3|'locked','up','down'|}",
+        "description": "Checks whether a skill is locked, up or down"
+    },
+    "counttype": {
+        "prefix": "counttype",
+        "body": "counttype ${1:graphic} ${2:color} ${3:source} ${4|==,!=,>=,<=,>,<|} ${5:value}",
+        "description": "Amount comparison of item type inside a container"
+    },
+    "counttypeground": {
+        "prefix": "counttypeground",
+        "body": "counttypeground ${1:graphic} ${2:color} ${3:range} ${4|==,!=,>=,<=,>,<|} ${5:value}",
+        "description": "Amount comparison of item or mobile type on the ground"
+    },
+    "findwand": {
+        "prefix": "findwand",
+        "body": "findwand ${1|'any','undefined','clumsy','identification','heal','feeblemind','weaken','magic arrow','harm','fireball','greater heal','lightning','mana drain'|} ${2:minimum chargs}",
+        "description": "Search for a wand and set alias 'found'"
+    },
+    "inparty": {
+        "prefix": "inparty",
+        "body": "inparty ${1:serial}",
+        "description": "Checks wether a mobile is in your party"
+    },
+    "infriendlist": {
+        "prefix": "infriendlist",
+        "body": "infriendlist ${1:serial}",
+        "description": "Checks whether a mobile is in your friend list"
+    },
+    "war": {
+        "prefix": "war",
+        "body": "war ${1:serial}",
+        "description": "Checks whether a mobile is in ward mode"
+    },
+    "waitforgump": {
+        "prefix": "waitforgump",
+        "body": "waitforgump ${1|gump id,'any'|} ${2:timeout}",
+        "description": "Wait for a gump from server"
+    },
+    "replygump": {
+        "prefix": "replygump",
+        "body": "replygump ${1|gump id,'any'|} ${2:button}",
+        "description": "Reply a server gump"
+    },
+    "ingump": {
+        "prefix": "ingump",
+        "body": "ingump ${1|gump id,'any'|} ${2:'text'}",
+        "description": "Check for a text in gump"
+    },
+    "gumpexists": {
+        "prefix": "gumpexists",
+        "body": "gumpexists ${1|gump id,'any'|}",
+        "description": "Check if a gump id exists or not"
+    },
+    "closegump": {
+        "prefix": "glosegump",
+        "body": "closegump ${1|'paperdoll','status','profile','container'|} ${2:serial}",
+        "description": "Close a specific gump type by serial"
+    },
+    "injournal": {
+        "prefix": "injournal",
+        "body": "injournal ${1:'text'} ${2|'author','system'|}",
+        "description": "Check for a text in journal, optional source name"
+    },
+    "clearjournal": {
+        "prefix": "clearjournal",
+        "body": "clearjournal\n$0",
+        "description": "Clear all journal texts"
+    },
+    "waitforjournal": {
+        "prefix": "waitforjournal",
+        "body": "waitforjournal ${1:'text'} ${2:timeout} ${3|'author','system'|}",
+        "description": "Check for a text in journal until it finds a text or timeout, optional source name"
+    },
+    "poplist": {
+        "prefix": "poplist",
+        "body": "poplist ${1:'list name'} ${2|'element value','front','back'|}",
+        "description": "Remove an element from a named and existing list"
+    },
+    "pushlist": {
+        "prefix": "pushlist",
+        "body": "pushlist ${1:'list name'} ${2:'element value'} ${3|'front','back'}",
+        "description": "Add a new element to an existing list"
+    },
+    "removelist": {
+        "prefix": "removelist",
+        "body": "removelist ${1:'list name'}",
+        "description": "Remove a named and existing list"
+    },
+    "listexists": {
+        "prefix": "listexists",
+        "body": "listexists ${1:'list name'}",
+        "description": "Check if a named list exists"
+    },
+    "list": {
+        "prefix": "list",
+        "body": "list ${1:'list name'} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Compare the size of an existing list with a given value"
+    },
+    "createlist": {
+        "prefix": "createlist",
+        "body": "createlist ${1:'list name'}",
+        "description": "Create a new named list"
+    },
+    "inlist": {
+        "prefix": "inlist",
+        "body": "inlist ${1:'list name'} ${2:'element value'}",
+        "description": "Checks wether a list contains a given element"
+    },
+    "clearlist": {
+        "prefix": "clearlist",
+        "body": "clearlist ${1:'list name'}",
+        "description": "Clear a list by name"
+    },
+    "info": {
+        "prefix": "info",
+        "body": "info\n$0",
+        "description": "Prompt to inspect in-game object"
+    },
+    "pause": {
+        "prefix": "pause",
+        "body": "pause ${1:timeout}",
+        "description": "Insert a pause/wait in milliseconds to your macro"
+    },
+    "ping": {
+        "prefix": "ping",
+        "body": "ping\n$0",
+        "description": "Retrieve an approximated ping with server"
+    },
+    "playmacro": {
+        "prefix": "playmacro",
+        "body": "playmacro ${1:'name'}",
+        "description": "Run a specific macro by name"
+    },
+    "playsound": {
+        "prefix": "playsound",
+        "body": "playsound ${1|sound id,'file name'|}",
+        "description": "Play sound by id or system .wav file.\nSystem .wav files must be placed on AssistUO/Sounds (Folder)"
+    },
+    "resync": {
+        "prefix": "resync",
+        "body": "resync\n$0",
+        "description": "Resynchronize game data with server"
+    },
+    "snapshot": {
+        "prefix": "snapshot",
+        "body": "snapshot ${1:optional timer}",
+        "description": "Same as print screen, command allows you to create a snapshot, it is also possible to add a delay before snapshotting"
+    },
+    "hotkeys": {
+        "prefix": "hotkeys",
+        "body": "hotkeys\n$0",
+        "description": "Enable and disable hotkeys"
+    },
+    "where": {
+        "prefix": "where",
+        "body": "where\n$0",
+        "description": "Display coordinates and region name"
+    },
+    "messagebox": {
+        "prefix": "messagebox",
+        "body": "messagebox ${1:'title'} ${2:'body'}",
+        "description": "Show a simple message box with a custom title and body"
+    },
+    "mapuo": {
+        "prefix": "mapuo",
+        "body": "mapuo\n$0",
+        "description": "Toggle MapUO visibility and start if not open"
+    },
+    "clickscreen": {
+        "prefix": "clickscreen",
+        "body": "clickscreen ${1:x} ${2:y} ${3|'single','double'|} ${4|'left','right'|}",
+        "description": "Use your mouse to click coordinates on your screen"
+    },
+    "paperdoll": {
+        "prefix": "paperdoll",
+        "body": "paperdoll ${1:serial}",
+        "description": "Opens Paperdoll from specific serial"
+    },
+    "helpbutton": {
+        "prefix": "helpbutton",
+        "body": "helpbutton\n$0",
+        "description": "Opens Help gump"
+    },
+    "guildbutton": {
+        "prefix": "guildbutton",
+        "body": "guildbutton\n$0",
+        "description": "Opens Guild gump"
+    },
+    "questsbutton": {
+        "prefix": "questsbutton",
+        "body": "questsbutton\n$0",
+        "description": "Opens Quests gump"
+    },
+    "logoutbutton": {
+        "prefix": "logoutbutton",
+        "body": "logoutbutton\n$0",
+        "description": "Logoff character"
+    },
+    "virtue": {
+        "prefix": "virtue",
+        "body": "virtue ${1|'honor','sacrifice','valor'|}",
+        "description": "Use a virtue by name"
+    },
+    "msg": {
+        "prefix": "msg",
+        "body": "msg ${1:'text'} ${2:optional color}",
+        "description": "Send a text message"
+    },
+    "headmsg": {
+        "prefix": "headmsg",
+        "body": "headmsg ${1:'text'} ${2:optional color} ${3:optional serial}",
+        "description": "Show a text message above character or specific serial"
+    },
+    "partymsg": {
+        "prefix": "partymsg",
+        "body": "partymsg ${1:'text'}",
+        "description": "Send a text message to party"
+    },
+    "guildmsg": {
+        "prefix": "guildmsg",
+        "body": "guildmsg ${1:'text'}",
+        "description": "Send a text message to guild"
+    },
+    "allymsg": {
+        "prefix": "allymsg",
+        "body": "allymsg ${1:'text'}",
+        "description": "Send a text message to allies"
+    },
+    "whispermsg": {
+        "prefix": "whispermsg",
+        "body": "whispermsg ${1:'text'}",
+        "description": "Send a whisper message to nearby characters"
+    },
+    "yellmsg": {
+        "prefix": "yellmsg",
+        "body": "yellmsg ${1:'text'}",
+        "description": "Send a yell message to nearby characters"
+    },
+    "sysmsg": {
+        "prefix": "sysmsg",
+        "body": "sysmsg ${1:'text'}",
+        "description": "Send a system message to game window"
+    },
+    "chatmsg": {
+        "prefix": "chatmsg",
+        "body": "chatmsg ${1:'text'}",
+        "description": "Send a message to the chat"
+    },
+    "emotemsg": {
+        "prefix": "emotemsg",
+        "body": "emotemsg ${1:'text'}",
+        "description": "Send a emote message to nearby characters"
+    },
+    "promptmsg": {
+        "prefix": "promptmsg",
+        "body": "promptmsg ${1:'text'}",
+        "description": "No description"
+    },
+    "timermsg": {
+        "prefix": "timermsg",
+        "body": "timermsg ${1:'timername'} ${2:optional color}",
+        "description": "Create a timed message"
+    },
+    "waitforprompt": {
+        "prefix": "waitforprompt",
+        "body": "waitforprompt ${1:timeout}",
+        "description": "Pause and wait for a message prompt for the duration of timeout"
+    },
+    "cancelprompt": {
+        "prefix": "cancelprompt",
+        "body": "cancelprompt\n$0",
+        "description": "Cancels any message prompt currently active"
+    },
+    "addfriend": {
+        "prefix": "addfriend",
+        "body": "addfriend\n$0",
+        "description": "In-game prompt for add a mobile to friend list"
+    },
+    "removefriend": {
+        "prefix": "removefriend",
+        "body": "removefriend\n$0",
+        "description": "In-game prompt for remove a mobile from friend list"
+    },
+    "contextmenu": {
+        "prefix": "contextmenu",
+        "body": "contextmenu ${1:serial} ${2:option}",
+        "description": "Request for a context menu option"
+    },
+    "waitforcontext": {
+        "prefix": "waitforcontext",
+        "body": "waitforcontext ${1:serial} ${2:option} ${3:timeout}",
+        "description": "Wait for a context menu option"
+    },
+    "ignoreobject": {
+        "prefix": "ignoreobject",
+        "body": "ignoreobject ${1:serial}",
+        "description": "Add a serial to the ignore list affecting findtype command"
+    },
+    "clearignorelist": {
+        "prefix": "clearignorelist",
+        "body": "clearignorelist\n$0",
+        "description": "Clear the current ignore list affecting findtype command"
+    },
+    "setskill": {
+        "prefix": "setskill",
+        "body": "setskill ${1|'alchemy','anatomy','animal lore','animal taming','archery','arms lore','begging','blacksmithy','bowcraft','bushido','camping','carpentry','cartography','chivalry','cooking','detecting hidden','discordance','evaluating intelligence','fencing','fishing','focus','forensic evaluation','healing','herding','hiding','imbuing','inscription','item identification','lockpicking','lumberjacking','mace fighting','magery','meditation','mining','musicianship','mysticism','necromancy','ninjitsu','parrying','peacemaking','poisoning','provocation','remove trap','resisting spells','snooping','spellweaving','spirit speak','stealing','stealth','swordsmanship','tactics','tailoring','taste identification','throwing','tinkering','tracking','veterinary','wrestling'|} ${2|'locked','up','down'|}",
+        "description": "Set a skill into a specific state: locked, up or down"
+    },
+    "waitforproperties": {
+        "prefix": "waitforproperties",
+        "body": "waitforproperties ${1:serial} ${2:timeout}",
+        "description": "Request and wait for properties of an item or mobile"
+    },
+    "autocolorpick": {
+        "prefix": "autocolorpick",
+        "body": "autocolorpick ${1:color}",
+        "description": "Setup an automated reply to the incoming dye color gump, allowing you to define dye tubs color"
+    },
+    "waitforcontents": {
+        "prefix": "waitforcontents",
+        "body": "waitforcontents ${1:serial} ${2:timeout}",
+        "description": "Wait for the server send a container contentes, it will also try opening the container once"
+    },
+    "miniheal": {
+        "prefix": "miniheal",
+        "body": "miniheal ${1:serial}",
+        "description": "Cast heal, cure upon a mobile"
+    },
+    "bigheal": {
+        "prefix": "bigheal",
+        "body": "bigheal ${1:serial}",
+        "description": "Cast greater heal, arch cure upon a mobile"
+    },
+    "cast": {
+        "prefix": "cast",
+        "body": "cast ${1|spell id,'spell name','last'|}",
+        "description": "Cast a spell by id or name"
+    },
+    "chilvaryheal": {
+        "prefix": "chilvaryheal",
+        "body": "chilvaryheal ${1:serial}",
+        "description": "Cast close wounds or cleanse by fire upon a mobile"
+    },
+    "waitfortarget": {
+        "prefix": "waitfortarget",
+        "body": "waitfortarget ${1:timeout}",
+        "description": "Wait for a new client target cursor from server"
+    },
+    "canceltarget": {
+        "prefix": "canceltarget",
+        "body": "canceltarget\n$0",
+        "description": "Cancel an existing cursor/target"
+    },
+    "target": {
+        "prefix": "target",
+        "body": "target ${1:serial} ${2:timeout}",
+        "description": "Instantly target a given serial"
+    },
+    "targettype": {
+        "prefix": "targettype",
+        "body": "targettype ${1:graphic} ${2:color} ${3:range}",
+        "description": "Instantly target a given type"
+    },
+    "targetground": {
+        "prefix": "targetground",
+        "body": "targetground ${1:graphic} ${2:color} ${3:range}",
+        "description": "Instantly target a given type on the ground"
+    },
+    "targettile": {
+        "prefix": "targettile",
+        "body": "targettile ${1|'last','current',x y z|} ${2:optional graphic}",
+        "description": "Instantly target a given tile"
+    },
+    "targettileoffset": {
+        "prefix": "targettileoffset",
+        "body": "targettileoffset ${1:x y z}",
+        "description": "Instantly target a given tile from current position"
+    },
+    "targettilerelative": {
+        "prefix": "targettilerelative",
+        "body": "targettilerelative ${1:serial} ${2:range} ${3:optional reverse - 'true' or 'false'} ${4:optional graphic}",
+        "description": "Instantly target a given tile from serial position"
+    },
+    "cleartargetqueue": {
+        "prefix": "cleartargetqueue",
+        "body": "cleartargetqueue\n$0",
+        "description": "Clear the target queue"
+    },
+    "autotargetlast": {
+        "prefix": "autotargetlast",
+        "body": "autotargetlast\n$0",
+        "description": "Setup an internal wait for target and automatically target an object.\nMust preceed an action that results in a cursor/target"
+    },
+    "autotargetself": {
+        "prefix": "autotargetself",
+        "body": "autotargetself\n$0",
+        "description": "Setup an internal wait for target and automatically target an object.\nMust preceed an action that results in a cursor/target"
+    },
+    "autotargetobject": {
+        "prefix": "autotargetobject",
+        "body": "autotargetobject ${1:serial}",
+        "description": "Setup an internal wait for target and automatically target an object.\nMust preceed an action that results in a cursor/target"
+    },
+    "autotargettype": {
+        "prefix": "autotargettype",
+        "body": "autotargettype ${1:graphic} ${2:color} ${3:range}",
+        "description": ""
+    },
+    "autotargettile": {
+        "prefix": "autotargettile",
+        "body": "autotargettile ${1|'last','current',x y z|} ${2:optional graphic}",
+        "description": ""
+    },
+    "autotargettileoffset": {
+        "prefix": "autotargettileoffset",
+        "body": "autotargettileoffset ${1:x y z} ${2:optional graphic}",
+        "description": ""
+    },
+    "autotargetrelative": {
+        "prefix": "autotargetrelative",
+        "body": "autotargetrelative ${1:serial} ${2:range} ${3:optional reverse - 'true'or 'false'} ${4:optional graphic}",
+        "description": ""
+    },
+    "autotargetghost": {
+        "prefix": "autotargetghost",
+        "body": "autotargetghost ${1:range} ${2:optional z-range}",
+        "description": ""
+    },
+    "autotargetground": {
+        "prefix": "autotargetground",
+        "body": "autotargetground ${1:graphic} ${2:optional color} ${3:optional range}",
+        "description": ""
+    },
+    "cancelautotarget": {
+        "prefix": "cancelautotarget",
+        "body": "cancelautotarget\n$0",
+        "description": ""
+    },
+    "getenemy": {
+        "prefix": "getenemy",
+        "body": "getenemy ${1|'any','friend','innocent','murderer','enemy','criminal','gray'|} ${2|'humanoid','transformation','closest','nearest'|}",
+        "description": "Get and set an 'enemy' alias according to the given parameters"
+    },
+    "targetexists": {
+        "prefix": "targetexists",
+        "body": "targetexits ${1|'any','beneficial','harmful','neutral','server','system'|}",
+        "description": "Check for a specific or any cursor/target type"
+    },
+    "waitingfortarget": {
+        "prefix": "waitingfortarget",
+        "body": "waitingfortarget\n$0",
+        "description": "Returns true whenever the core is internally waiting for a server target"
+    },
+    "getfriend": {
+        "prefix": "getfriend",
+        "body": "getfriend ${1|'any','friend','innocent','murderer','enemy','criminal','gray','invulnerable'|} ${2|'humanoid','transformation','closest','nearest'|}",
+        "description": "Get and set a 'friend' alias according to the given parameters"
+    },
+    "timer": {
+        "prefix": "timer",
+        "body": "timer ${1:'timer name'} ${2|==,!=,>=,<=,>,<|} ${3:value}",
+        "description": "Check for a named timer value"
+    },
+    "timerexists": {
+        "prefix": "timerexists",
+        "body": "timerexists ${1:'timer name'}",
+        "description": "Check if a named timer exists"
+    },
+    "settimer": {
+        "prefix": "settimer",
+        "body": "settimer ${1:'timer name'} ${2:value}",
+        "description": "Set a timer value and create in case it doesn't exist"
+    },
+    "removetimer": {
+        "prefix": "removetimer",
+        "body": "removetimer ${1:'timer name'}",
+        "description": "Remove a specific timer by name"
+    },
+    "createtimer": {
+        "prefix": "createtimer",
+        "body": "createtimer ${1:'timer name'}",
+        "description": "Create a new named timer"
     }
 }

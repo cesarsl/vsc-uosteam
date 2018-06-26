@@ -11,3 +11,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Colorizing functions, constants, comments and variables.
+
+## [0.0.2] - 2018-06-12
+
+### Added
+
+- Code snippets (only if and elseif).
+
+## [0.1.0] - 2018-06-26
+
+### Updated
+
+- All disponible code snippets from documentation are avaiable.
+- Add icon to the extension
