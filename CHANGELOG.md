@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Code snippets (only if and elseif).
 
-## [0.1.0] - 2018-06-26
+## [0.1.0] - 2018-06-28
 
 ### Updated
 

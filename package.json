@@ -2,8 +2,9 @@
     "name": "uos",
     "displayName": "UOS",
     "description": "UOSteam Scripting Language support for Visual Studio Code",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "publisher": "cesarsl",
+    "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.23.0"
     },
