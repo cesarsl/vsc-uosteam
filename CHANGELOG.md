@@ -18,9 +18,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Code snippets (only if and elseif).
 
-## [0.1.0] - 2018-06-28
+## [0.2.0] - 2018-06-28
 
 ### Updated
 
 - All disponible code snippets from documentation are avaiable.
 - Add icon to the extension
+
+## [0.2.1] - 2018-06-28
+
+### Updated
+
+- Adjust changelog and readme.
